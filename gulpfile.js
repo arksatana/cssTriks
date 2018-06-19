@@ -81,7 +81,7 @@ gulp.task('style:build', () => {
 	gulp.src(path.src.style)
 		.pipe(sourcemaps.init())
 		.pipe(less({
-				//plugins: [autoprefix]
+				plugins: [autoprefix]
 			}))
 		.pipe(cleanCSS({debug: true}, (details) => {
 				console.log(`${details.name}: ${details.stats.originalSize}`);
