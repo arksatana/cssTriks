@@ -1,0 +1,45 @@
+.card {
+	height: 300px;
+	perspective: 1000px;
+	position: relative;
+	width: 300px;
+
+	&-wrap {
+		align-items: center;
+		display: flex;
+		height: 100vh;
+		justify-content: center;
+	}
+
+	&-front,
+	&-back {
+		align-items: center;
+		background: #AFB42B;
+		backface-visibility: hidden;
+		bottom: 0;
+		display: flex;
+		justify-content: center;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transition: 1s;
+	}
+
+	&-front {
+	}
+
+	&-back {
+		background: #448AFF;
+		transform: rotateY(180deg);
+	}
+
+	&:hover &-front {
+		transform: rotateY(180deg);
+	}
+
+	&:hover &-back {
+		transform: rotateY(360deg);
+	}
+
+}
