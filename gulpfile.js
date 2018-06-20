@@ -2,7 +2,6 @@ let gulp           = require('gulp'),
 	watch          = require('gulp-watch'),
 	less           = require('gulp-less'),
 	LessAutoprefix = require('less-plugin-autoprefix'),
-	autoprefix     = new LessAutoprefix({ browsers: ['last 2 versions'] }),
 	uglify         = require('gulp-uglify'),
 	babel          = require('gulp-babel'),
 	rigger         = require('gulp-rigger'),
@@ -80,9 +79,7 @@ gulp.task('js:build', () => {
 gulp.task('style:build', () => {
 	gulp.src(path.src.style)
 		.pipe(sourcemaps.init())
-		.pipe(less({
-				plugins: [autoprefix]
-			}))
+		.pipe(less())
 		.pipe(cleanCSS({debug: true}, (details) => {
 				console.log(`${details.name}: ${details.stats.originalSize}`);
 				console.log(`${details.name}: ${details.stats.minifiedSize}`);

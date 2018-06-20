@@ -1,8 +1,16 @@
 .card {
-	height: 300px;
+	color: #F00;
+	font-size: 20px;
+	font-weight: 700;
 	perspective: 1000px;
 	position: relative;
-	width: 300px;
+	width: 20%;
+
+	&::before {
+		content: "";
+		display: block;
+		padding-top: 100%;
+	}
 
 	&-wrap {
 		align-items: center;
@@ -14,23 +22,28 @@
 	&-front,
 	&-back {
 		align-items: center;
-		background: #AFB42B;
 		backface-visibility: hidden;
 		bottom: 0;
+		border-radius: 5px;
+		box-shadow: 5px 5px 10px rgba(0,0,0,.5);
 		display: flex;
 		justify-content: center;
 		left: 0;
+		overflow: hidden;
 		position: absolute;
 		right: 0;
+		text-align: center;
 		top: 0;
-		transition: 1s;
-	}
+		transition: transform 1s;
 
-	&-front {
+		img {
+			position: absolute;
+			top: 0;
+			z-index: -1;
+		}
 	}
 
 	&-back {
-		background: #448AFF;
 		transform: rotateY(180deg);
 	}
 
@@ -40,6 +53,18 @@
 
 	&:hover &-back {
 		transform: rotateY(360deg);
+	}
+
+	&-img__hor {
+		left: 50%;
+		transform: translateX(-50%);
+		height: 100%;
+	}
+
+	&-img__ver {
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
 	}
 
 }
